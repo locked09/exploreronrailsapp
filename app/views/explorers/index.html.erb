@@ -1,0 +1,34 @@
+<% if user_signed_in? %>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Twitter</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @explorers.each do |explorer| %>
+      <% if explorer.user == current_user %>
+      <tr>
+        <td>
+          <%= link_to explorer.first_name + ' ' + explorer.last_name, explorer %>
+        </td>
+        <td><%= explorer.email %></td>
+        <td><%= explorer.phone %></td>
+        <td><%= explorer.twitter %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Explorer', new_explorer_path, class:"btn btn-secondary" %>
+
+<% else %>
+  <h1>Hello Explorers!!</h1>
+<% end %>

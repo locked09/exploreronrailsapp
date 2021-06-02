@@ -1,0 +1,7 @@
+<h1>Editing Explorer</h1>
+
+<%= render 'form', explorer: @explorer %>
+<br/>
+<%= link_to 'Show', @explorer, class:"btn btn-secondary" %>
+<%= link_to 'Delete', @explorer, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<%= link_to 'Back', explorers_path, class:"btn btn-dark" %>
